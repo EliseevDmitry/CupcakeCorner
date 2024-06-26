@@ -17,11 +17,14 @@ struct AddressView: View {
                 TextField("City", text: $order.city)
                 TextField("Zip", text: $order.zip)
             }
+            .onAppear{
+                order.loadData()
+            }
             Section{
                 NavigationLink("Check out"){
                     CheckoutView(order: order)
                 }
-                .disabled(order.hasValidAddress == false)
+                .disabled(order.hasValidAddress == false || order.emptyFields == false)
             }
         }
         .navigationTitle("Delivery details")

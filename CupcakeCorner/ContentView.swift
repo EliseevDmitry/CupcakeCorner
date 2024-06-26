@@ -32,7 +32,6 @@ struct ContentView: View {
                         AddressView.init(order: order)
                     }
                 }
-                
             }
             .navigationTitle("Cupcake Corner")
         }
